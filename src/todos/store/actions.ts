@@ -1,4 +1,4 @@
-import { Todo, TodoData, Visibility } from "../model";
+import { TodoData, Visibility } from "../model";
 
 export enum ActionType {
   CREATE_TODO,

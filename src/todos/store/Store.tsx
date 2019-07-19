@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppState } from '../model';
-import { Action, ActionType } from './actions';
+import { Action } from './actions';
 
 type ContextProps = {
   state: AppState,
@@ -27,7 +27,8 @@ export const Store: React.FC<Provider> = ({ reducer, initialState, children }) =
 
 export const useStore = () => React.useContext(StoreCtx);
 
-export const useAppState = (selector: (state: AppState) => any = (state => state)) => {
+export function useAppState<R>(selector: (state: AppState) => R): R {
   return selector(React.useContext(StoreCtx).state as AppState);
 }
+
 export const useDispatch = () => React.useContext(StoreCtx).dispatch as (action: Action) => void;
