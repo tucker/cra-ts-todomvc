@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import TodoItem from './TodoItem';
-import { useAppState } from './store';
+import { Todo } from './model';
 
-const TodoList = () => {
-
-  const todos = useAppState(state => state.todos) ;
+const TodoList: FunctionComponent<{todos: Todo[]}> = ({todos}) => {
 
   return (
     <ul className="todo-list">
